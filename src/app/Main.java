@@ -1,7 +1,5 @@
 package app;
 
-import tabuleiro.Posicao;
-import tabuleiro.Tabuleiro;
 import xadrez.PartidaXadrez;
 
 public class Main {
@@ -9,6 +7,6 @@ public class Main {
 
         PartidaXadrez partida = new PartidaXadrez();
 
-        UI.printTabuleiro(partida.getPecas());
+        Interface.printTabuleiro(partida.getPecas());
     }
 }

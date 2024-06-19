@@ -2,7 +2,7 @@ package app;
 
 import xadrez.PecaXadrez;
 
-public class UI {
+public class Interface {
 
     public static void printTabuleiro(PecaXadrez[][] pecas) {
         for (int i = 0; i < pecas.length; i++) {
