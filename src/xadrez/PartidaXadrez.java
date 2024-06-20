@@ -24,14 +24,18 @@ public class PartidaXadrez {
         return mat;
     }
 
-    private void setupInicial() {
-        tabuleiro.posicionaPeca(new Torre(tabuleiro, Cor.PRETO), new Posicao(0, 0));
-        tabuleiro.posicionaPeca(new Torre(tabuleiro, Cor.PRETO), new Posicao(0, 7));
-        tabuleiro.posicionaPeca(new Rei(tabuleiro, Cor.PRETO), new Posicao(0, 3));
+    private void posicionaNovaPeca(char coluna, int linha, PecaXadrez peca) {
+        tabuleiro.posicionaPeca(peca, new PosicaoXadrez(coluna, linha).paraPosicao());
+    }
 
-        tabuleiro.posicionaPeca(new Torre(tabuleiro, Cor.BRANCO), new Posicao(7, 0));
-        tabuleiro.posicionaPeca(new Torre(tabuleiro, Cor.BRANCO), new Posicao(7, 7));
-        tabuleiro.posicionaPeca(new Rei(tabuleiro, Cor.BRANCO), new Posicao(7, 3));
+    private void setupInicial() {
+        posicionaNovaPeca('a', 8, new Torre(tabuleiro, Cor.PRETO));
+        posicionaNovaPeca('h', 8, new Torre(tabuleiro, Cor.PRETO));
+        posicionaNovaPeca('d', 8, new Rei(tabuleiro, Cor.PRETO));
+
+        posicionaNovaPeca('a', 1, new Torre(tabuleiro, Cor.BRANCO));
+        posicionaNovaPeca('h', 1, new Torre(tabuleiro, Cor.BRANCO));
+        posicionaNovaPeca('d', 1, new Rei(tabuleiro, Cor.BRANCO));
 
     }
 }
