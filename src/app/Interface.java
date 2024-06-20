@@ -1,8 +1,13 @@
 package app;
 
+import xadrez.Cor;
 import xadrez.PecaXadrez;
 
 public class Interface {
+
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_WHITE = "\u001B[37m";
 
     public static void printTabuleiro(PecaXadrez[][] pecas) {
         for (int i = 0; i < pecas.length; i++) {
@@ -16,11 +21,16 @@ public class Interface {
     }
 
     private static void printPeca(PecaXadrez peca){
-        if (peca == null){
+        if (peca == null) {
             System.out.print("-");
         }
         else {
-            System.out.print(peca);
+            if (peca.getCor() == Cor.BRANCO) {
+                System.out.print(ANSI_WHITE + peca + ANSI_RESET);
+            }
+            else {
+                System.out.print(ANSI_YELLOW + peca + ANSI_RESET);
+            }
         }
         System.out.print(" ");
     }
