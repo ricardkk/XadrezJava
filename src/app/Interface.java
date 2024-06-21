@@ -2,12 +2,28 @@ package app;
 
 import xadrez.Cor;
 import xadrez.PecaXadrez;
+import xadrez.PosicaoXadrez;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Interface {
 
     public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_WHITE = "\u001B[37m";
+    public static final String ANSI_YELLOW = "\u001B[38;5;227m";
+    public static final String ANSI_WHITE = "\u001B[38;5;231m";
+
+    public static PosicaoXadrez inputPosicaoXadrez(Scanner sc) {
+        try {
+            String s = sc.nextLine();
+            char coluna = s.charAt(0);
+            int linha = Integer.parseInt(s.substring(1));
+            return new PosicaoXadrez(coluna, linha);
+        }
+        catch (RuntimeException e) {
+            throw new InputMismatchException("Erro na leitura. Valores válidos são de a1 até h8");
+        }
+    }
 
     public static void printTabuleiro(PecaXadrez[][] pecas) {
         for (int i = 0; i < pecas.length; i++) {
