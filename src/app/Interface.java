@@ -13,6 +13,11 @@ public class Interface {
     public static final String ANSI_YELLOW = "\u001B[38;5;227m";
     public static final String ANSI_WHITE = "\u001B[38;5;231m";
 
+    public static void limpaTela() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     public static PosicaoXadrez inputPosicaoXadrez(Scanner sc) {
         try {
             String s = sc.nextLine();
