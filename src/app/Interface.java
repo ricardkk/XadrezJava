@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
+
 
 public class Interface {
 
@@ -18,10 +18,6 @@ public class Interface {
     public static final String ANSI_WHITE = "\u001B[38;5;231m";
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[48;5;81m";
 
-    public static void limpaTela() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
 
     public static PosicaoXadrez inputPosicaoXadrez(Scanner sc) {
         try {
@@ -40,9 +36,15 @@ public class Interface {
         System.out.println();
         printPecasCapturadas(capturadas);
         System.out.println("Turno: " + partidaXadrez.getTurno());
-        System.out.println("Esperando jogador: " + partidaXadrez.getJogadorAtual());
-        if (partidaXadrez.getCheque()) {
-            System.out.println("CHEQUE!");
+        if (!partidaXadrez.getChequeMate()) {
+            System.out.println("Esperando jogador: " + partidaXadrez.getJogadorAtual());
+            if (partidaXadrez.getCheque()) {
+                System.out.println("CHEQUE!");
+            }
+        }
+        else {
+            System.out.println("CHEQUE MATE!");
+            System.out.println("O vencedor é: " + partidaXadrez.getJogadorAtual());
         }
     }
 

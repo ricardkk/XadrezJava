@@ -18,9 +18,8 @@ public class Main {
         PartidaXadrez partidaXadrez = new PartidaXadrez();
         List<PecaXadrez> capturadas = new ArrayList<>();
 
-        while (true) {
+        while (!partidaXadrez.getChequeMate()) {
             try {
-                Interface.limpaTela();
                 Interface.printPartida(partidaXadrez, capturadas);
                 System.out.println();
                 System.out.print("Origem: ");
@@ -48,5 +47,6 @@ public class Main {
                 sc.nextLine();
             }
         }
+        Interface.printPartida(partidaXadrez, capturadas);
     }
 }
