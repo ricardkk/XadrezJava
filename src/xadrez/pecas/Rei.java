@@ -13,7 +13,7 @@ public class Rei extends PecaXadrez {
 
     @Override
     public String toString() {
-        return "R";
+        return "K";
     }
 
     private boolean podeSeMover(Posicao posicao) {
